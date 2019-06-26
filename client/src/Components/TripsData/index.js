@@ -39,6 +39,7 @@ function TripsData() {
       <table>
         <thead>
           <tr>
+            <th>#</th>
             <th>Driver</th>
             <th>User</th>
             <th>Amount</th>

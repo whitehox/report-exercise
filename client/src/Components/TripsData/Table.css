@@ -2,7 +2,7 @@
   background: #fff;
   width: 95%;
   padding: 5px;
-  margin: 20px auto;
+  margin: 10px auto;
   border-radius: 4px;
   box-shadow: 0 0.46875rem 2.1875rem rgba(4, 9, 20, 0.03),
     0 0.9375rem 1.40625rem rgba(4, 9, 20, 0.03),
@@ -38,6 +38,7 @@
 .trips-table thead th {
   border-right: 1px solid #f1f1f1;
   padding: 10px;
+  font-weight: lighter !important;
 }
 
 .trips-table thead th:last-child {
