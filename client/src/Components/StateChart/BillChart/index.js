@@ -8,11 +8,15 @@ import Chart from 'react-apexcharts';
 function BillChart(props) {
   const [initialState, setState] = useState({
     colors: ['#fd0', '#E91E63'],
-    series: [],
     labels: [],
+    series: [],
   });
   const [optionsState, setOptionsState] = useState({
-    options: {},
+    options: {
+      chart: {
+        type: 'donut',
+      },
+    },
   });
 
   useEffect(() => {
@@ -28,13 +32,11 @@ function BillChart(props) {
             labels.push(key);
             figure.push(data.data[key]);
           }
-          console.log(labels);
           setState({
             colors: ['#fd0', '#E91E63'],
-            series: [...figure],
             labels: [...labels],
+            series: [...figure],
           });
-          console.log({ setState });
         }
       });
   }, []);

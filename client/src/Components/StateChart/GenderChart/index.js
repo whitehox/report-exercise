@@ -27,12 +27,11 @@ function GenderChart(props) {
             labels.push(key);
             figure.push(data.data[key]);
           }
-          console.log(labels);
-          setState({
-            series: [...figure],
-            labels: [...labels],
-          });
         }
+        setState({
+          series: [...figure],
+          labels: [...labels],
+        });
       });
   }, []);
 
