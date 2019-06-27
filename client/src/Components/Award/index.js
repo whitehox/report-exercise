@@ -1,23 +1,31 @@
 import React, { useState, useEffect } from 'react';
 import './Award.css';
-
-function Award() {
-  const [tripsState, setTripsState] = useState({ trips: [] });
+function Award(props) {
+  const [tripsState, setTripsState] = useState({
+    trips: [{ Cash: 0, NonCash: 0, sum: 0, name: 'Drivers Name' }],
+  });
 
   useEffect(() => {
-    fetch('/api/trips')
+    const getTrips = async () => {
+      let ret = await fetch('/api/trips');
+      return ret;
+    };
+
+    getTrips()
       .then(data => {
         return data.json();
       })
       .then(data => {
-        setTripsState({ trips: data.data });
+        setTimeout(function() {
+          setTripsState({ trips: data.data });
+        }, 2000);
       });
   }, []);
 
   let calculatedTrips = tripsState.trips.reduce((accumulator, currentTrip) => {
     let key = currentTrip.driverID;
     if (!accumulator[key]) {
-      accumulator[key] = { Cash: 0, NonCash: 0, sum: 0, name: '' };
+      accumulator[key] = { Cash: 0, NonCash: 0, sum: 0, name: 'Drivers Name' };
     }
     if (currentTrip.isCash) {
       accumulator[key].Cash += 1;
@@ -60,7 +68,7 @@ function Award() {
       });
   }, []);
 
-  let driverName = '';
+  let driverName = 'Drivers Name';
   for (const i of driverNameState.data) {
     try {
       if (i.driverID === winnerID[0]) {
@@ -71,12 +79,34 @@ function Award() {
   }
 
   let preDetail = Object.values(winner);
-  console.log(preDetail);
 
   return (
     <section className="awards-slate">
-      <div className="badge">
-        <img src="https://github.com/whitehox/driver-report-dashboard/blob/master/client/src/images/badge" />
+      <p className="awards-title child">Driver of the Year</p>
+      <div className="badge child">
+        <img
+          alt="Award Winning Driver"
+          src={require('../images/badge-gold.png')}
+        />
+      </div>
+      <div className="award-details child">
+        <p className="driver-details">Driver Details</p>
+        <p>
+          <i className="mdi mdi-account" />
+          {driverName}
+        </p>
+        <p>
+          <i className="mdi mdi-cash-multiple" />
+          {preDetail[0].Cash} Cash trips
+        </p>
+        <p>
+          <i className="mdi mdi-credit-card" />
+          {preDetail[0].NonCash} Non-Cash trips
+        </p>
+        <p>
+          <i className="mdi mdi-map-clock" />
+          {preDetail[0].NonCash + preDetail[0].Cash} Trips completed
+        </p>
       </div>
     </section>
   );
