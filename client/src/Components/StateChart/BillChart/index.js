@@ -32,12 +32,12 @@ function BillChart(props) {
             labels.push(key);
             figure.push(data.data[key]);
           }
-          setState({
-            colors: ['#fd0', '#E91E63'],
-            labels: [...labels],
-            series: [...figure],
-          });
         }
+        setState({
+          colors: ['#fd0', '#E91E63'],
+          labels: [...labels],
+          series: [...figure],
+        });
       });
   }, []);
 

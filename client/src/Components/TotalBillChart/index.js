@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Chart from 'react-apexcharts';
 import './TotalBillChart.css';
+import Awards from '../Award/';
 
 import fetch from 'node-fetch';
 
@@ -94,6 +95,7 @@ class TotalBillChart extends Component {
             />
           </div>
         </div>
+        <Awards />
       </div>
     );
   }
