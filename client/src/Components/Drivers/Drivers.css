@@ -10,4 +10,43 @@
 /* 1a1f30 */
 .driver-display {
   flex: 0 0 70%;
+  overflow-y: scroll;
+}
+.single-list {
+  font-size: 12px;
+  color: #495057;
+  padding: 10px 30px;
+  cursor: pointer;
+  transition: all linear 0.2s;
+  display: block;
+  text-decoration: none;
+  display: flex;
+}
+.list-image {
+  width: 40px;
+  height: 40px;
+  border: 1px solid #f1f1f1;
+  border-radius: 50%;
+  background: #f1f1f1;
+  border: none;
+}
+.single-list:hover {
+  color: #000;
+  font-weight: bold;
+  transition: all linear 0.2s;
+  box-shadow: 0 0 14px #f1f1f1;
+  border: 1px solid #f1f1f1;
+}
+.single-list span {
+  clear: both;
+  display: block;
+  padding: 5px;
+  text-decoration: none;
+}
+.single-list span i {
+  color: #01e296;
+}
+.list-head {
+  padding: 20px;
+  border-bottom: 1px solid #f1f1f1;
 }

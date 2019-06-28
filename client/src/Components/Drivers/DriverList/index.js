@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import getDrivers from '../../../Helpers/getDrivers';
+import { Link } from 'react-router-dom';
 
-function DriverList() {
+function DriverList(props) {
   const [driverState, setDriverState] = useState([]);
   useEffect(() => {
     getDrivers().then(data => {
@@ -9,6 +10,7 @@ function DriverList() {
 
       for (const driver of data) {
         driverDetails.push({
+          driverId: driver.driverID,
           driverName: driver.name,
           driverPhone: driver.phone,
         });
@@ -16,16 +18,27 @@ function DriverList() {
       setDriverState(driverDetails);
     });
   }, []);
-  console.log(driverState);
 
   return (
     <div className="driver-list">
+      <p className="list-head">Drivers</p>
       {driverState.map((driver, index) => {
         return (
-          <p key={index}>
-            <span>{driver.driverName}</span>
-            <span>{driver.driverPhone}</span>
-          </p>
+          <Link
+            to={`/drivers/${driver.driverId}`}
+            className="single-list"
+            key={index}
+          >
+            <span className="list-image" />
+            <div>
+              <span>
+                <i className="mdi mdi-account" /> {driver.driverName}
+              </span>
+              <span>
+                <i className="mdi mdi-phone" /> {driver.driverPhone}
+              </span>
+            </div>
+          </Link>
         );
       })}
     </div>
