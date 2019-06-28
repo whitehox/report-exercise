@@ -1,0 +1,13 @@
+.drivers {
+  display: flex;
+}
+.driver-list {
+  height: 100%;
+  box-shadow: -8px 0 8px -8px #d8d8d8;
+  flex: 0 0 30%;
+  background: #fff;
+}
+/* 1a1f30 */
+.driver-display {
+  flex: 0 0 70%;
+}

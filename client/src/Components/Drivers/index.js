@@ -1,7 +1,14 @@
 import React from 'react';
+import DriverList from './DriverList';
+import './Drivers.css';
 
 function Drivers() {
-  return <p>This is the Drivers page</p>;
+  return (
+    <div className="mainBody drivers">
+      <div className="driver-display" />
+      <DriverList />
+    </div>
+  );
 }
 
 export default Drivers;
