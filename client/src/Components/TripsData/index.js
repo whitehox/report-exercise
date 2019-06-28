@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 import './Table.css';
 function TripsData() {
@@ -98,7 +99,14 @@ function TripsData() {
           <td>{driverNames[index]}</td>
           <td>{passengerName}</td>
           <td>{billed[index]}</td>
-          <td>{<a href={`/${tripId[index]}`}> Details</a>}</td>
+          <td>
+            {
+              <Link to={`/trips/${driverNames[index]}/${tripId[index]}`}>
+                {' '}
+                Details
+              </Link>
+            }
+          </td>
         </tr>
       );
     });
