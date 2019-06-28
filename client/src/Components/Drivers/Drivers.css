@@ -11,7 +11,34 @@
 .driver-display {
   flex: 0 0 70%;
   overflow-y: scroll;
+  display: flex;
+  justify-content: center;
+  height: fit-content;
 }
+
+.driver-display article {
+  margin: 10px;
+  background: #fff;
+  padding: 10px;
+  flex: 0 0 50%;
+  display: block;
+  border-radius: 4px;
+  box-shadow: 0 0.46875rem 2.1875rem rgba(4, 9, 20, 0.03),
+    0 0.9375rem 1.40625rem rgba(4, 9, 20, 0.03),
+    0 0.25rem 0.53125rem rgba(4, 9, 20, 0.05),
+    0 0.125rem 0.1875rem rgba(4, 9, 20, 0.03);
+}
+
+.driver-display article span {
+  width: 70px;
+  height: 70px;
+  background: #f1f1f1;
+  border-radius: 50%;
+  border: none;
+  display: block;
+  margin: auto;
+}
+
 .single-list {
   font-size: 12px;
   color: #495057;

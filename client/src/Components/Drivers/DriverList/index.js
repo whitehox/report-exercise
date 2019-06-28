@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import getDrivers from '../../../Helpers/getDrivers';
-import { Link } from 'react-router-dom';
 
-function DriverList(props) {
+import { NavLink } from 'react-router-dom';
+
+function DriverList() {
   const [driverState, setDriverState] = useState([]);
   useEffect(() => {
     getDrivers().then(data => {
@@ -19,13 +20,22 @@ function DriverList(props) {
     });
   }, []);
 
+  const style = {
+    color: '#000',
+    fontWeight: 'bold',
+    transition: 'all linear 0.2s',
+    boxShadow: '0 0 14px #d8d8d8',
+    border: '1px solid #f1f1f',
+  };
+
   return (
     <div className="driver-list">
       <p className="list-head">Drivers</p>
       {driverState.map((driver, index) => {
         return (
-          <Link
+          <NavLink
             to={`/drivers/${driver.driverId}`}
+            activeStyle={style}
             className="single-list"
             key={index}
           >
@@ -38,7 +48,7 @@ function DriverList(props) {
                 <i className="mdi mdi-phone" /> {driver.driverPhone}
               </span>
             </div>
-          </Link>
+          </NavLink>
         );
       })}
     </div>
