@@ -2,6 +2,7 @@
   flex: 0 0 20%;
   height: 100%;
   background: #fff;
+  position: relative;
 }
 .mainNav p {
   font-weight: bolder;
@@ -9,9 +10,12 @@
   color: #03bb7d;
   margin-bottom: 10px;
   border-bottom: 1px solid #f1f1f1;
-  padding: 10px 20px;
+  padding: 20px;
 }
-
+.allNav {
+  position: fixed;
+  width: 20%;
+}
 .mainNav ul {
   font-size: 14px;
 }

@@ -1,5 +1,5 @@
 import React from 'react';
-import { Route } from 'react-router-dom';
+import { Route, Switch } from 'react-router-dom';
 import './App.css';
 
 /** Components */
@@ -12,9 +12,12 @@ function App() {
   return (
     <div className="App">
       <Navbar />
-      <Route exact path="/" component={Home} />
-      <Route path="/trips" component={Trips} />
-      <Route path="/drivers" component={Drivers} />
+      <Switch>
+        <Route exact path="/" component={Home} />
+        <Route path="/dashboard" component={Home} />
+        <Route path="/trips" component={Trips} />
+        <Route path="/drivers" component={Drivers} />
+      </Switch>
     </div>
   );
 }

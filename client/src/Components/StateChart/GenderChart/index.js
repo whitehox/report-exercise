@@ -35,6 +35,12 @@ function GenderChart(props) {
       });
   }, []);
 
+  function setSeries() {
+    document.querySelector(
+      '#SvgjsSvg1301 > foreignObject > div > div:nth-child(1) > span.apexcharts-legend-text',
+    ).innerText = 'tega';
+  }
+
   return (
     <div className="donut">
       <Chart

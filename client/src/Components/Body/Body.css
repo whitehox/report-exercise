@@ -1,5 +1,5 @@
 .mainBody {
   flex: 0 0 80%;
-  height: 100%;
+  height: fit-content;
   background: #eef1f3;
 }
