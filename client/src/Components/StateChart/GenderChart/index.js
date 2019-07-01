@@ -10,9 +10,6 @@ function GenderChart(props) {
     series: [],
     labels: [],
   });
-  const [optionsState, setOptionsState] = useState({
-    options: {},
-  });
 
   useEffect(() => {
     fetch('api/stats')
@@ -35,16 +32,10 @@ function GenderChart(props) {
       });
   }, []);
 
-  function setSeries() {
-    document.querySelector(
-      '#SvgjsSvg1301 > foreignObject > div > div:nth-child(1) > span.apexcharts-legend-text',
-    ).innerText = 'tega';
-  }
-
   return (
     <div className="donut">
       <Chart
-        options={optionsState.options}
+        options={{}}
         series={initialState.series}
         type="donut"
         width="380"

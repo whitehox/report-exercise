@@ -34,7 +34,7 @@ function DriverList() {
       {driverState.map((driver, index) => {
         return (
           <NavLink
-            driverNames={driverState}
+            drivernames={driverState}
             to={{
               pathname: `/drivers/${driver.driverId}`,
               state: {

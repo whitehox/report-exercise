@@ -11,13 +11,6 @@ function BillChart(props) {
     labels: [],
     series: [],
   });
-  const [optionsState, setOptionsState] = useState({
-    options: {
-      chart: {
-        type: 'donut',
-      },
-    },
-  });
 
   useEffect(() => {
     fetch('api/stats')
@@ -44,7 +37,7 @@ function BillChart(props) {
   return (
     <div className="donut">
       <Chart
-        options={optionsState.options}
+        options={{}}
         series={initialState.series}
         type="donut"
         width="380"

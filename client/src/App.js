@@ -1,9 +1,9 @@
 import React from 'react';
-import { Route, Switch } from 'react-router-dom';
+import { BrowserRouter as Router, Route, Switch } from 'react-router-dom';
 import './App.css';
 
 /** Components */
-import Body from './Components/Body';
+import './Components/Body/Body.css';
 import Navbar from './Components/Navbar';
 import Trips from './Components/Trips';
 import Drivers from './Components/Drivers';
@@ -11,13 +11,15 @@ import Home from './Components/Home';
 function App() {
   return (
     <div className="App">
-      <Navbar />
-      <Switch>
-        <Route exact path="/" component={Home} />
-        <Route path="/dashboard" component={Home} />
-        <Route path="/trips" component={Trips} />
-        <Route path="/drivers" component={Drivers} />
-      </Switch>
+      <Router>
+        <Navbar />
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route path="/dashboard" component={Home} />
+          <Route path="/trips" component={Trips} />
+          <Route path="/drivers" component={Drivers} />
+        </Switch>
+      </Router>
     </div>
   );
 }

@@ -34,7 +34,7 @@ export default function VehicleDetail(props) {
       <div className="vehiclesDet">
         {vehicleState.map((vehicle, index) => {
           return (
-            <article class="det">
+            <article key={index} className="det">
               <p>{vehicle.manufacturer}</p>
               <p>{vehicle.plate}</p>
               <p>{vehicle.acquired}</p>

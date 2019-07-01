@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react';
 import DriverList from './DriverList';
 import './Drivers.css';
 import getDrivers from '../../Helpers/fetchAny';
-import fetch from 'node-fetch';
 import DriverDetails from './DriverDetail';
 
 function Drivers() {
@@ -11,7 +10,6 @@ function Drivers() {
   const urlPattern = /([\d\w]*[-]).*/g;
   const id = url[last];
   const [driverState, setDriverState] = useState({ name: 'Hello' });
-  const [vehicleState, setVehicleState] = useState([]);
 
   useEffect(() => {
     getDrivers('/api/drivers').then(data => {
@@ -26,21 +24,6 @@ function Drivers() {
       break;
     }
   }
-
-  useEffect(() => {
-    let ret = [];
-    toDisplay.vehicleID.forEach((id, index) => {
-      fetch(`/api/vehicle/${id}`)
-        .then(data => {
-          return data.json();
-        })
-        .then(data => {
-          console.log(data.data);
-          ret.push(data.data);
-          setVehicleState(ret);
-        });
-    });
-  }, []);
 
   if (!urlPattern.test(url)) {
     return (

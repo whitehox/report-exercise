@@ -3,15 +3,9 @@ import SearchBar from '../SearchBar';
 import TripsData from '../TripsData';
 
 import getTrips from '../../Helpers/getTrips';
-import getDrivers from '../../Helpers/getDrivers';
-import getVehicle from '../../Helpers/getVehicle';
 
 function Trips(props) {
   const [tripsState, setTripsState] = useState({});
-
-  const [driversState, setDriversState] = useState({});
-
-  const [displayState, setDisplayState] = useState({ details: false });
 
   const [billingState, setBillingState] = useState();
   const [pickupstate, setPickupState] = useState();
@@ -23,12 +17,6 @@ function Trips(props) {
   useEffect(() => {
     getTrips().then(data => {
       setTripsState(data);
-    });
-  }, []);
-
-  useEffect(() => {
-    getDrivers().then(data => {
-      setDriversState(data);
     });
   }, []);
 
