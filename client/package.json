@@ -5,6 +5,7 @@
   "dependencies": {
     "@reach/router": "^1.2.1",
     "@sentry/browser": "5.4.3",
+    "@testing-library/react": "^8.0.4",
     "add": "^2.0.6",
     "apexcharts": "^3.8.1",
     "apollo-cache-inmemory": "1.6.2",
