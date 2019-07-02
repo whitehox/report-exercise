@@ -85,7 +85,7 @@ class TotalBillChart extends Component {
   render() {
     return (
       <div className="totalbill-chart">
-        <div className="row">
+        <div className="row totalChart">
           <div className="mixed-chart">
             <Chart
               options={this.state.options}

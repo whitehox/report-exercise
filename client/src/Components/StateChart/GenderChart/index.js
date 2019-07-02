@@ -13,8 +13,8 @@ function GenderChart(props) {
 
   useEffect(() => {
     fetch('api/stats')
-      .then(data => {
-        return data.json();
+      .then(async data => {
+        return await data.json();
       })
       .then(data => {
         let labels = [];
@@ -31,9 +31,8 @@ function GenderChart(props) {
         });
       });
   }, []);
-
   return (
-    <div className="donut">
+    <div className="donut genderChart">
       <Chart
         options={{}}
         series={initialState.series}

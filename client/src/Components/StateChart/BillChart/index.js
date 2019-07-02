@@ -35,7 +35,7 @@ function BillChart(props) {
   }, []);
 
   return (
-    <div className="donut">
+    <div className="donut billChart">
       <Chart
         options={{}}
         series={initialState.series}
