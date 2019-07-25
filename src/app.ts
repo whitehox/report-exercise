@@ -39,8 +39,6 @@ app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(express.static(path.join(__dirname, 'public')));
 
-app.use('/api', apiRouter);
-
 app.use(
   '/graphql',
   graphQLHTTP({
@@ -48,6 +46,9 @@ app.use(
     graphiql: true,
   }),
 );
+
+app.use('/api', apiRouter);
+app.use('/', express.static(path.join(__dirname, '../', 'client/build')));
 
 // catch 404 and forward to error handler
 app.use(function(
