@@ -51,7 +51,7 @@ describe('Body charts components', () => {
 
 describe('Trips table', () => {
   test('Should check', () => {
-    const { container, debug, getAllByText } = render(<Body />);
+    const { container, getAllByText } = render(<Body />);
     const tableContainer = container.querySelector('.trips-table');
 
     expect(getAllByText(/TRIPS DETAILS/)).not.toBeNull();
